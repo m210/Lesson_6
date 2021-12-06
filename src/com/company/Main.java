@@ -128,10 +128,11 @@ public class Main {
         System.out.println("\n\tЗадача 8\n");
 
         int[] arr = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
+        Arrays.sort(arr);
 
-        int a = arr[0], b = arr[0], j = 1;
-        while(j < arr.length && (a + b) != -2) {
-            b = arr[j++];
+        int a = arr[0], j = arr.length - 1, b = arr[j];
+        while(j >= 0 && b > 0 && (a + b) != -2) {
+            b = arr[j--];
         }
         System.out.println(a + " + " + b + " = -2");
     }
@@ -140,14 +141,14 @@ public class Main {
         System.out.println("\n\tЗадача 9\n");
 
         int[] arr = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
+        Arrays.sort(arr);
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length && arr[i] < 0; i++) {
             int a = arr[i];
-            for (int j = 0; j < arr.length; j++) {
+            for (int j = arr.length - 1; j >= 0 && arr[j] > 0; j--) {
                 int b = arr[j];
-                if ((a + b) == -2) {
+                if(a + b == -2)
                     System.out.println(a + " + " + b + " = -2");
-                }
             }
         }
     }
